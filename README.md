@@ -1,5 +1,5 @@
 # 🛡️ Autonomous System Guardian
-> **⚠️ Variant Notice**: This repository is a specialized security-focused branch of the [AI-CodeCompass](https://github.com/w8explorer/AI-CodeCompass) framework, optimized for autonomous system monitoring on Ubuntu.
+> **⚠️ Variant Notice**: This repository is a specialized security-focused branch of the [AI-CodeCompass](https://github.com/w8explorer/AI-CodeCompass) framework, optimized for autonomous system monitoring on Ubuntu. **Upgraded and Maintained by Antigravity (Advanced Agentic Coding).**
 
 > **Powered by AI-CodeCompass Intelligence Suite**
 
@@ -86,4 +86,4 @@ The Guardian is typically scheduled via Crontab:
 The Guardian is built for **local execution**. All code analysis and memory indexing happen on your server, ensuring that your logic and system state never leave your infrastructure.
 
 ---
-*Maintained by the AI-CodeCompass Team & Upgraded to Guardian Status.*
+*Intelligence Upgraded to Guardian Status by Antigravity (Advanced Agentic Coding).*
