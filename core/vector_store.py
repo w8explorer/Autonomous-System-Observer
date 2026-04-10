@@ -4,7 +4,7 @@ import pickle
 import logging
 from typing import List, Dict, Any
 from langchain_community.vectorstores import FAISS
-from langchain.schema import Document
+from langchain_core.documents import Document
 from sentence_transformers import SentenceTransformer
 
 logger = logging.getLogger(__name__)
