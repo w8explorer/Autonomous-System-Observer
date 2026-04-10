@@ -394,12 +394,21 @@ def build_graph():
 if __name__ == "__main__":
     _divider("Ubuntu Observer — Project Memory (LangGraph)", CY)
     
-    # Check for Query Mode
+    # Check for Mode
     query_text = ""
+    interactive_mode = False
     for i, arg in enumerate(sys.argv):
+        if arg in ["--interactive", "-i"]:
+            interactive_mode = True
+            break
         if arg in ["--query", "-q"] and i + 1 < len(sys.argv):
             query_text = " ".join(sys.argv[i+1:])
             break
+
+    if interactive_mode:
+        from observer_chat import start_chat
+        start_chat()
+        sys.exit(0)
 
     if query_text:
         print(f"{MA}{B}🕵️‍♂️ Mode: Observer Consultation (Adaptive RAG){R}")
