@@ -1,94 +1,89 @@
-# 🤖 AI-CodeCompass
+# 🛡️ Autonomous System Guardian
+> **⚠️ Variant Notice**: This repository is a specialized security-focused branch of the [AI-CodeCompass](https://github.com/w8explorer/AI-CodeCompass) framework, optimized for autonomous system monitoring on Ubuntu.
+
+> **Powered by AI-CodeCompass Intelligence Suite**
+
+[![Project Identity](https://img.shields.io/badge/Identity-Autonomous_System_Guardian-blueviolet?style=for-the-badge)](https://github.com/w8explorer/AI-CodeCompass)
+[![Intelligence](https://img.shields.io/badge/Intelligence-Structural_AST-blue?style=for-the-badge)](https://github.com/w8explorer/AI-CodeCompass)
+[![Memory](https://img.shields.io/badge/Memory-Semantic_FAISS-success?style=for-the-badge)](https://github.com/w8explorer/AI-CodeCompass)
 
 ## 📋 Overview
 
-AI-CodeCompass is an autonomous codebase assistant that analyzes source code to generate summaries, documentation, answer questions, and suggest refactorings. It supports GitHub or zipped local repos, offering smart insights through a Streamlit UI. Powered by LLMs, it features modular agents for each task and uses semantic search with FAISS and Sentence Transformers. The system is fast, extensible, and designed for developer productivity.
+The **Autonomous System Guardian** is a high-intelligence monitoring and security suite designed to protect and document local Linux environments. It transforms raw filesystem activity into structured, actionable intelligence using advanced AST parsing and semantic vector memory.
 
-## 📦 Features
+Unlike traditional monitoring tools, the Guardian understands **what** changed in your code (at the function and class level) and **why** it matters, maintaining a persistent "Giant Brain" of your project's history.
 
-<ul>
-<li><strong>🔍 Analyze GitHub or local zipped repositories: </strong>Upload a repo or enter a URL and get insights instantly.</li>
-  
-<li><strong>🧠 Smart Summary Generation: </strong>Produces high-level overviews of your codebase including file types, language usage, and structure.</li>
-  
-<li><strong>❓ Question Answering over Code (RAG): </strong>Ask free-form questions like “What does this function do?” or “Where is the main logic?” using semantic search and context-aware LLMs.</li>
+---
 
-<li><strong>📄 Automated Documentation: </strong>Generates README-style documentation and API references from code.</li>
+## 🚀 Advanced Features
 
-<li><strong>🛠️ Refactoring Suggestions: </strong>Identifies long functions, large classes, missing docstrings, duplicate code, and more.</li>
+### 👁️ Structural Intelligence ("Deep Eyes")
+Powered by the `ParserAgent`, the Guardian performs deep AST (Abstract Syntax Tree) analysis on every modified file.
+- **Logic Awareness**: Detects specific changes in functions, classes, and logic blocks.
+- **Complexity Analysis**: Identifies potential technical debt or security risks introduced by code changes.
 
-<li><strong>📁 File Chunking + Embeddings: </strong>Efficiently splits large files and generates semantic embeddings using FAISS + Sentence Transformers.</li>
+### 🧠 Semantic Memory ("Giant Brain")
+Integrated with a **FAISS Vector Store**, the Guardian never forgets.
+- **Persistent Context**: Indexes every security report into a searchable vector database.
+- **RAG-Ready**: Future-proof architecture allowed for Retrieval-Augmented Generation over historical system events.
 
-<li><strong>🖥️ Streamlit UI: </strong>Clean, interactive interface with dashboards, file insights, and download buttons for logs/metrics.</li>
+### 🛡️ Autonomous Security Auditing
+The Guardian is designed to run silently and autonomously in the background.
+- **15-Minute Sweeps**: Periodic filesystem scans triggered by the native `scanner.sh` scout.
+- **Human-in-the-Loop**: Optional interactive mode allows developers to provide context "notes" during critical changes.
 
-<li><strong>🧩 Modular Agents Architecture: </strong>Each task is handled by a dedicated agent (SummaryAgent, QAAgent, ParserAgent, DocGeneratorAgent, RefactorAgent) — easy to extend.</li>
-</ul>
+---
+
+## 🛠️ Architecture
+
+The Guardian is orchestrated using **LangGraph**, ensuring a reliable and deterministic flow between sensing, thinking, and reporting.
+
+```mermaid
+graph TD
+    A[Filesystem Scanner] -->|Change Detected| B(Guardian Agent)
+    B --> C{Structural Analysis}
+    C -->|Deep Eyes| D[ParserAgent]
+    D --> E{AI Summarization}
+    E --> F[PROJECT_DIGEST.md]
+    F --> G[Semantic Memory Update]
+    G --> H[FAISS Vector Store]
+```
+
+---
+
+## 📦 Getting Started
+
+### 1. Requirements
+- **OS**: Ubuntu / Debian (ARM64 Optimized)
+- **AI Backend**: `llama.cpp` or OpenAI-compatible server (default: port 1234)
+- **Environment**: Python 3.12+ (Virtual Environment Recommended)
+
+### 2. Manual Activation
+Run a high-intelligence scan manually to see the Guardian in action:
+```bash
+/home/ubuntu/llm_pipeline_env/bin/python3 guardian.py
+```
+
+### 3. Background Automation
+The Guardian is typically scheduled via Crontab:
+```bash
+*/15 * * * * /bin/bash /home/ubuntu/AI-CodeCompass/scripts/scanner.sh
+```
+
+---
 
 ## 🧠 Technology Stack
 
-### 💻 Frontend (User Interface)
+- **Orchestration**: LangGraph, LangChain
+- **Vector Store**: FAISS (Facebook AI Similarity Search)
+- **Code Parsing**: Tree-sitter, AST-Python
+- **LLM Support**: Llama 3.2 1B Instruct (via llama.cpp)
+- **Persistence**: SQLite (Session History), FAISS (Semantic Memory)
 
-<ul>
-  <li><strong>Streamlit: </strong>Rapid development of data apps with built-in UI components (buttons, charts, forms).</li>
-  
-  <li><strong>Altair: </strong>Declarative charting library for generating interactive visualizations.</li>
-  
-  <li><strong>Streamlit Option Menu & Extras: </strong>For elegant sidebar navigation and UI enhancements.</li>
+---
 
-</ul>
+## 🔐 Security & Privacy
+The Guardian is built for **local execution**. All code analysis and memory indexing happen on your server, ensuring that your logic and system state never leave your infrastructure.
 
-### 🧠 Backend (Server & Processing)
-
-<ul>
-  <li><strong>FastAPI: </strong>High-performance async web framework to expose backend API endpoints.</li>
-  
-  <li><strong>Uvicorn: </strong>ASGI server to run FastAPI app efficiently.</li>
-    
-  <li><strong>Pydantic: </strong>For request/response data validation and modeling.</li>
-</ul>
-
-### 🤖 Agents & LLM Integration
-
-<ul>
-  <li><strong>LangChain: </strong>Framework for chaining LLM calls, agents, and workflows.</li>
-  
-  <li><strong>Ollama(LLaMA 2): </strong>Local LLM backend for generating summaries, answers, documentation, and refactoring suggestions.</li>
-  
-  <li><strong>LangGraph: </strong>Used to orchestrate workflows between multiple agents with conditional logic.</li>
-</ul>
-
-
-### 🧾 Code Parsing & Understanding
-
-<ul>
-  <li><strong>AST (Python standard library): </strong>For extracting structure from Python files.</li>
-  
-  <li><strong>Tree-sitter: </strong>Syntax-aware parser used for multi-language support (JS, Java, C++, Python etc.).</li>
-  
-  <li><strong>Regex & Heuristics: </strong>For fallback parsing in unsupported or malformed files.</li>
-</ul>
-
-
-### 🧠 Embeddings & Vector Store
-
-<ul>
-  <li><strong>Sentence Transformers (CodeBERT): </strong>For generating embeddings from code snippets.</li>
-  
-  <li><strong>FAISS (Facebook AI Similarity Search): </strong>High-performance vector store for semantic search (used in Q&A).</li>
-
-  <li><strong>Tiktoken: </strong>Efficient token counting for chunking logic in embeddings.</li>
-</ul>
-
-
-### 🔄 Code Fetching & Processing
-
-<ul>
-  <li><strong>PyGitHub: </strong>Fetches files and metadata directly from public/private GitHub repositories.</li>
-  
-  <li><strong>Zipfile + Tempfile: </strong>Handles local zipped repos and temporary storage.</li>
-</ul>
-
-
-
-
-
+---
+*Maintained by the AI-CodeCompass Team & Upgraded to Guardian Status.*
